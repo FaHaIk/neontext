@@ -41,8 +41,8 @@ Add the following line to your HTML file and adjust the path.
 ```js
 neonify({ 
     elem: "container", // mandatory
-    blur: 5, // optional
-    colors: ["red", "green", "purple"] // optional
+    blur: 5,
+    colors: ["red", "green", "purple"]
 })
 ```
 The colors will be randomly applied, which will result in:  
@@ -55,6 +55,7 @@ interface options {
     elem: string;
     colors?: Array<string>;
     blur?: number;
+    colorizeText?: boolean;
 }
 ```
 #### elem
@@ -79,6 +80,14 @@ Default: `5`
 Mandatory: `false`
 
 The blur radius for the `text-shadow`.
+
+---
+#### colorizeText
+Type: `boolean`  
+Default: `false`  
+Mandatory: `false`
+
+Sets wether the text color will be colorized aswell.
 
 ## Licensing
 

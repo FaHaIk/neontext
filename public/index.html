@@ -1,24 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>neontext example</title>
-  </head>
-  <body>
-    <div style="padding-left: 20%; padding-top: 20%;color: white;font-size: 90px; font-weight: 900; font-family: 'Segoe UI';" id="pid">
-    NeonText
-    </div>
-    <!-- <div id="od">NeonText</div> -->
-    <!-- <button id="btn" onclick="applyShadow()">Click</button> -->
-    <script src="dist/neontext.js" type="module"></script>
-    <script src="dist/neontext.umd.js" type="module"></script>
-    <script>
-      function applyShadow() {
-        neontext.neonify({elem: "od", blur: 3})
-      }
-    </script>
-  </body>
-</html>
 
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>neontext example</title>
+</head>
+
+<body>
+  <div
+    style="padding-left: 20%; padding-top: 20%;color: white;font-size: 90px; font-weight: 900; font-family: 'Segoe UI';"
+    id="pid">
+    NeonText
+  </div>
+  <div
+    style="padding-left: 20%; padding-top: 20%;color: white;font-size: 90px; font-weight: 900; font-family: 'Segoe UI';"
+    id="id">
+    NeonText
+  </div>
+  <!-- <div id="od">NeonText</div> -->
+  <!-- <button id="btn" onclick="applyShadow()">Click</button> -->
+  <script src="dist/neontext.js" type="module"></script>
+  <script src="dist/neontext.umd.js" type="module"></script>
+  <script>
+    function applyShadow() {
+      neontext.neonify({ elem: "od", blur: 3, colorizeText: true })
+    }
+  </script>
+</body>
+
+</html>

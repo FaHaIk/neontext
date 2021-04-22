@@ -10,7 +10,9 @@ interface options {
     /** The blur radius in pixel. */
     blur?: number,
     /** Do the characters randomly get a color assigned. */
-    random?: boolean
+    random?: boolean,
+    /** Apply color to the text. */
+    colorizeText?: boolean
 }
 
 /** 
@@ -34,6 +36,7 @@ function neonify({ ...options }: options) {
     options.colors = options.colors || ["#ff00ff", "#00ffff", "#ffff00"]
     options.blur = options.blur || 5
     options.random = options.random || false
+    options.colorizeText = options.colorizeText || false
 
     /** @constant {Array<string>} */
     const charArr = _splitElementString(options.elem)
@@ -61,8 +64,9 @@ function _createSpanElements(charArr: Array<string>, options: options) {
             if (options.random) {
                 const randomNumber = _getRandomIntInclusive(0, options.colors.length - 1)
                 span.style.textShadow = "0px 0px " + options.blur + "px " + options.colors[randomNumber];
-                // trial
-                // span.style.color = options.colors[randomNumber]
+                if(options.colorizeText) {
+                    span.style.color = options.colors[randomNumber]
+                }
             }
             elem.appendChild(span);
         }
@@ -73,8 +77,9 @@ function _createSpanElements(charArr: Array<string>, options: options) {
             for (let i = 0; i < elem.querySelectorAll("span:nth-of-type(" + options.colors.length + "n + " + (y + 1) + ")").length; i++) {
                 let spanElement = elem.querySelectorAll("span:nth-of-type(" + options.colors.length + "n + " + (y + 1) + ")")[i] as HTMLElement
                 spanElement.style.textShadow = "0px 0px " + options.blur + "px " + options.colors[y]
-                // trial
-                // spanElement.style.color = options.colors[y]
+                if(options.colorizeText) {
+                    spanElement.style.color = options.colors[y]
+                }
             }
         }
     }
