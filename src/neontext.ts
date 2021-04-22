@@ -8,11 +8,15 @@ interface options {
     /** An array of color strings to be used as textshadow color. */
     colors?: Array<string>,
     /** The blur radius in pixel. */
-    blur?: number,
+    shadowBlurRadius?: number,
     /** Do the characters randomly get a color assigned. */
     random?: boolean,
     /** Apply color to the text. */
-    colorizeText?: boolean
+    colorizeText?: boolean,
+    /** The shadow x offset. */
+    shadowOffsetX?: number,
+    /** The shadow y offset. */
+    shadowOffsetY?: number,
 }
 
 /** 
@@ -31,12 +35,13 @@ function neonify({ ...options }: options) {
         return
     }
 
-    /** Set defaults if not set via options parameter. */
-    options.elem = options.elem
+    /** Set defaults. */
     options.colors = options.colors || ["#ff00ff", "#00ffff", "#ffff00"]
-    options.blur = options.blur || 5
+    options.shadowBlurRadius = options.shadowBlurRadius || 5
     options.random = options.random || false
     options.colorizeText = options.colorizeText || false
+    options.shadowOffsetX = options.shadowOffsetX || 0
+    options.shadowOffsetY = options.shadowOffsetY || 0
 
     /** @constant {Array<string>} */
     const charArr = _splitElementString(options.elem)
@@ -63,7 +68,7 @@ function _createSpanElements(charArr: Array<string>, options: options) {
             /** randomly apply a color for the textshadow */
             if (options.random) {
                 const randomNumber = _getRandomIntInclusive(0, options.colors.length - 1)
-                span.style.textShadow = "0px 0px " + options.blur + "px " + options.colors[randomNumber];
+                span.style.textShadow = options.shadowOffsetX + "px " + options.shadowOffsetY + "px " + options.shadowBlurRadius + "px " + options.colors[randomNumber];
                 if(options.colorizeText) {
                     span.style.color = options.colors[randomNumber]
                 }
@@ -76,7 +81,7 @@ function _createSpanElements(charArr: Array<string>, options: options) {
         for (let y = 0; y < options.colors.length; y++) {
             for (let i = 0; i < elem.querySelectorAll("span:nth-of-type(" + options.colors.length + "n + " + (y + 1) + ")").length; i++) {
                 let spanElement = elem.querySelectorAll("span:nth-of-type(" + options.colors.length + "n + " + (y + 1) + ")")[i] as HTMLElement
-                spanElement.style.textShadow = "0px 0px " + options.blur + "px " + options.colors[y]
+                spanElement.style.textShadow = options.shadowOffsetX + "px " + options.shadowOffsetY + "px " + options.shadowBlurRadius + "px " + options.colors[y]
                 if(options.colorizeText) {
                     spanElement.style.color = options.colors[y]
                 }

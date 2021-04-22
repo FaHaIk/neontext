@@ -92,11 +92,10 @@ describe('create span elements for each char', () => {
 
     test('span has text-shadow', () => {
         _createSpanElements(["A", "d", "d"], { elem: "btn", colors: ["#ff00ff", "#f0f0f0"] })
-        expect(document.getElementById("btn").getElementsByTagName("span")[0].style.textShadow).toContain("0px")
+        expect(document.getElementById("btn").getElementsByTagName("span")[0].style.textShadow).toContain("#")
     });
 
 });
-
 
 describe('main function', () => {
 
@@ -104,8 +103,8 @@ describe('main function', () => {
         document.getElementsByTagName('html')[0].innerHTML = startHTML;
     });
 
-    test('neonify({elem: "btn", blur: 5, colors:["red"]})', () => {
-        neonify({elem: "btn", blur: 5, colors:["red"]})
+    test('neonify({elem: "btn", shadowBlurRadius: 5, colors:["red"]})', () => {
+        neonify({elem: "btn", shadowBlurRadius: 5, colors:["red"]})
         expect(document.getElementById("btn").querySelector("span").style.textShadow).toBe("0px 0px 5px red")
         expect(document.getElementById("btn").getElementsByTagName("span").length).toBe(3)
     });
@@ -123,6 +122,18 @@ describe('main function', () => {
         expect(elemStyle.textShadow.substring(elemStyle.textShadow.length - 5)).toBe("green")
         expect(document.getElementById("btn2").getElementsByTagName("span").length).toBe(5)
         expect(elemStyle.color).toBe("green")
+    });
+
+    test('neonify({elem: "btn", shadowOffsetX: 2}) with shadow x offset', () => {
+        neonify({elem: "btn", shadowOffsetX: 2})
+        const elemStyle = document.getElementById("btn").querySelector("span").style
+        expect(elemStyle.textShadow.substring(0, 3)).toBe("2px")
+    });
+
+    test('neonify({elem: "btn2", shadowOffsetY: -2}) with shadow -y offset', () => {
+        neonify({elem: "btn2", shadowOffsetY: -2})
+        const elemStyle = document.getElementById("btn2").querySelector("span").style
+        expect(elemStyle.textShadow.substring(4, 8)).toBe("-2px")
     });
 
 });
