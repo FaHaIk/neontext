@@ -1,0 +1,59 @@
+{
+  "name": "neontext",
+  "version": "1.0.2",
+  "author": "FaHaIk <fabian.ikizoglu@web.de>",
+  "keywords": [
+    "neontext",
+    "rainbow",
+    "text-shadow",
+    "text",
+    "color"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FaHaIk/neontext.git"
+  },
+  "license": "MIT",
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    ".": {
+      "browser": "./dist/neontext.js",
+      "import": "./dist/neontext.js",
+      "require": "./dist/neontext.cjs.js",
+      "umd": "./dist/neontext.umd.js"
+    },
+    "./": "./",
+    "./package.json": "./package.json"
+  },
+  "main": "dist/neontext.cjs.js",
+  "unpkg": "dist/neontext.js",
+  "module": "dist/neontext.js",
+  "source": "src/neontext.ts",
+  "browser": "dist/neontext.umd.js",
+  "types": "dist/neontext.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "klap build",
+    "prepublishOnly": "klap build",
+    "start": "klap start",
+    "watch": "klap watch",
+    "doc": "typedoc src/neontext.ts",
+    "cypress:open": "cypress open",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.22",
+    "jest": "^26.6.3",
+    "klap": "^6.1.5",
+    "ts-jest": "^26.5.5",
+    "typedoc": "^0.20.35",
+    "typescript": "^4.2.4"
+  },
+  "klap": {
+    "example": "public/index.ts"
+  },
+  "dependencies": {}
+}

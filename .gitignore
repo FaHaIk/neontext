@@ -1,0 +1,8 @@
+node_modules
+coverage
+.idea
+*.log
+yarn.lock
+bup.ts
+sd.ts
+README-b.md
