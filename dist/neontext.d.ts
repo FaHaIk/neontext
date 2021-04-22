@@ -1,9 +1,11 @@
 interface options {
     elem: string;
     colors?: Array<string>;
-    blur?: number;
+    shadowBlurRadius?: number;
     random?: boolean;
     colorizeText?: boolean;
+    shadowOffsetX?: number;
+    shadowOffsetY?: number;
 }
 declare function neonify({ ...options }: options): void;
 declare function _createSpanElements(charArr: Array<string>, options: options): void;

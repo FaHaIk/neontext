@@ -41,8 +41,12 @@ Add the following line to your HTML file and adjust the path.
 ```js
 neonify({ 
     elem: "container", // mandatory
-    blur: 5,
-    colors: ["red", "green", "purple"]
+    shadowBlurRadius: 5,
+    colors: ["red", "green", "purple"],
+    random: true,
+    colorizeText: false,
+    shadowOffsetX: 0,
+    shadowOffsetY: 0,
 })
 ```
 The colors will be randomly applied, which will result in:  
