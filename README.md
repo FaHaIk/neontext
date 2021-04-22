@@ -54,12 +54,15 @@ The colors will be randomly applied, which will result in:
 
 ## Configuration
 The options have to be passed in an object adhering to the following interface:
-```js
+```javascript
 interface options {
-    elem: string;
-    colors?: Array<string>;
-    blur?: number;
-    colorizeText?: boolean;
+    elem: string,
+    colors?: Array<string>,
+    shadowBlurRadius?: number,
+    random?: boolean,
+    colorizeText?: boolean,
+    shadowOffsetX?: number,
+    shadowOffsetY?: number,
 }
 ```
 #### elem
@@ -78,7 +81,7 @@ Mandatory: `false`
 An array containing the CSS color strings, which will be used for coloring the `text-shadow`.
 
 ---
-#### blur
+#### shadowBlurRadius
 Type: `Number`  
 Default: `5`  
 Mandatory: `false`
@@ -92,6 +95,30 @@ Default: `false`
 Mandatory: `false`
 
 Sets wether the text color will be colorized aswell.
+
+---
+#### random
+Type: `boolean`  
+Default: `false`  
+Mandatory: `false`
+
+Should the colors get randomly applied to spans.
+
+---
+#### shadowOffsetX
+Type: `number`  
+Default: `0`  
+Mandatory: `false`
+
+The `text-shadow` x offset.
+
+---
+#### shadowOffsetY
+Type: `number`  
+Default: `0`  
+Mandatory: `false`
+
+The `text-shadow` y offset.
 
 ## Licensing
 
