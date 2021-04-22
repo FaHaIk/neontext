@@ -117,4 +117,12 @@ describe('main function', () => {
         expect(document.getElementById("btn2").getElementsByTagName("span").length).toBe(5)
     });
 
+    test('neonify({elem: "btn2", colors: ["green"], colorizeText: true})', () => {
+        neonify({elem: "btn2", colors: ["green"], colorizeText: true})
+        const elemStyle = document.getElementById("btn2").querySelector("span").style
+        expect(elemStyle.textShadow.substring(elemStyle.textShadow.length - 5)).toBe("green")
+        expect(document.getElementById("btn2").getElementsByTagName("span").length).toBe(5)
+        expect(elemStyle.color).toBe("green")
+    });
+
 });
