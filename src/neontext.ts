@@ -36,7 +36,7 @@ function neonify({ ...options }: options) {
     }
 
     /** Set defaults. */
-    options.colors = options.colors || ["#ff00ff", "#00ffff", "#ffff00"]
+    options.colors = options.colors || ["#ff00ff","#00ffff", "#01FFC3"]
     options.shadowBlurRadius = options.shadowBlurRadius || 5
     options.random = options.random || false
     options.colorizeText = options.colorizeText || false
