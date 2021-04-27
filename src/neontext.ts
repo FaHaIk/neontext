@@ -22,7 +22,7 @@ interface options {
 /** 
 * Splits the innerText of the HTMLElement into spans and applies a different textshadow to each of them, based on the colors provided.
 * @function neonify
-* @param {options} options - The options object with {elem: string, colors?: string[], blur?: number, random?: boolean}.
+* @param {...options} options - The options object with {elem: string, colors?: string[], blur?: number, random?: boolean}.
 */
 function neonify({ ...options }: options) {
 
